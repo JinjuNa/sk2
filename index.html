@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/cssanimation.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/scrolly.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div class="wrap header_wrap">
+                <h1 class="logo"><a href="#"><img src="images/logo.png"></a></h1>
+                <div class="lang">
+                    <a href="#" id="langhead">한국/한국어</a>
+                    <ul class="langmenu">
+                        <li><a href="#">한국/한국어</a></li>
+                        <li><a href="#">International/English</a></li>
+                        <li><a href="#">日本/日本語</a></li>
+                        <li><a href="#">中国大陆/中文</a></li>
+                        <li><a href="#">台灣/繁體中文</a></li>
+                    </ul>
+                    <div></div>
+                </div>
+
+                <script>
+                    window.onload = function(){scrolly();}
+                //     $('.#langhead').find('a').click(
+                //   function(e){
+                //      e.preventDefault();         //a링크 기능 없애줌
+                //     }
+                //  );
+
+                $('#langhead').on('click',function(){
+                    $(this).css({'backgroundColor':'#666', 'color' : '#fff'});
+                    $('.langmenu').slideToggle(500);
+                    $('.lang div').show();
+                    
+                });
+
+                
+
+                $('.lang div').on('click',function(){
+                    $('.langmenu').slideUp(500);
+                    $(this).hide();
+                    $('#langhead').css({'backgroundColor':'#fff', 'color' : '#000'});
+                })
+
+
+                
+                
+                
+                </script>
+                <ul class="util">
+                    <li><a href="#"><i class="far fa-user"></i></a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i></a></li>
+                    <li><a href="#"><i class="fas fa-search"></i></a></li>
+                </ul>
+            </div>
+            
+        </header>
+        <nav>
+        <div class="wrap">
+            <ul class=gnb>
+                <li class="maingnb"><a href="#">추천제품</a>
+                    <ul class="gnb2 sub1">
+                        <li><a href="#">신제품</a></li>
+                        <li><a href="#">베스트셀러</a></li>
+                        <li><a href="#">SK-II 스타터키트</a></li>
+                    </ul>
+                </li>
+                <li class="maingnb"><a href="#">제품</a>
+                        <ul class="gnb2 sub2">
+                            <li><a href="#">클렌저</a></li>
+                            <li><a href="#">토너/스킨</a></li>
+                            <li><a href="#">에센스</a></li>
+                            <li><a href="#">모이스처라이저</a></li>
+                            <li><a href="#">자외선 차단</a></li>
+                            <li><a href="#">아이 케어</a></li>
+                            <li><a href="#">마스크/집중케어</a></li>
+                        </ul>
+                    </li>
+                <li class="maingnb"><a href="#">새소식</a>
+                    <ul class="gnb2 sub3">
+                            <li><a href="#">IN THE SPOTLIGHT</a></li>
+                            <li><a href="#">EXPERTISE</a></li>
+                            <li><a href="#">SKIN SOLUTIONS</a></li>
+                            <li><a href="#">MUST-HAVES</a></li>
+                            <li><a href="#">VIDEOS</a></li>
+                    
+                    </ul>    
+                </li>
+                <li class="maingnb"><a href="#">브랜드 스토리</a></li>
+                <li class="maingnb"><a href="#">상담</a>
+                    <ul class="gnb2 sub4">
+                            <li><a href="#">메직링 피부진단</a></li>
+                        </ul>
+                </li>
+            </ul>
+        </div>
+        </nav>
+        <div class="mainpagerwrap">
+        <section class="mainbn wrap">
+           <div class="simg simg1"><a href="#">메인베너</a></div>
+           <div class="simg simg2"><a href="#">메인베너</a></div>
+           <div class="simg simg3"><a href="#">
+                <!-- <div class="maintxt main3">
+                    <h4>베스트 셀러</h4>
+                    <p>수많은 권위 있는 뷰티 어워드를 수상한<br>
+                    제품들로 비교할 수 없는 아름다운 피부를 만나보세요.</p>
+                </div> -->
+            </a>
+            </div>
+<!-- 슬라이더 -->
+
+        </section>
+
+        <script>
+            // arrows 모양 바꾸기
+        
+                $('.mainbn').slick({
+                    'arrows' : true,
+                    'dots' : true,
+                    'customPaging' : function(s, i){
+
+
+                            return '<a href="#"></a>';
+                    },
+                    'autoplay' : true,
+                    'prevArrow' : 'nav li:nth-child(1)',
+                    'nextArrow' : 'nav li:nth-child(2)',
+                
+                    
+                });
+
+
+
+                $(window).on('scroll',function(){
+
+                    var scr = $(this).scrollTop();
+                    var point = $('.contents').offset().top-70;
+
+                    if(scr>=point){
+                        $('header, nav').addClass('on');
+                    }else if(scr===0){
+                        $('header, nav').removeClass('on');
+                    }
+
+
+                })
+
+
+                </script>
+    </div>
+
+        
+
+
+        <section class="contents">
+            
+            <div id="bestseller" data-scrolly-down="blurInTop, delay:0.5s">
+                <div class="wrap">  
+                        <!-- 왜 height값 안잡히지? -->
+               
+                        <div class="best">
+                            <div class="bestsimg simg1">
+                                <div class="besttxt">
+                                    <h3>BEST SELLER</h3>
+                                    <h4 class="name">페이셜 트리트먼트 에센스</h4>
+                                    <h5 class="name_eng">FACIAL TREATMENT ESSENCE</h5>
+                                    <p class="detail">피부결은 물론 광채와 탄력을 높여주는<br> 트리트먼트 에센스</p>
+
+                                    <div class="more"><a href="#">자세히 보기</a></div>
+                                </div>
+                            </div>
+
+                            <div class="bestsimg simg2">
+                                <div class="besttxt">
+                                    <h3>BEST SELLER</h3>
+                                    <h4 class="name">R.N.A.파워 크림</h4>
+                                    <h5 class="name_eng">R.N.A POWER RADICAL NEW AGE</h5>
+                                    <p class="detail">탄력과 유연성을 높이고 탱탱한 동안 피부를<br> 지켜주는 크림</p>
+
+                                    <div class="more"><a href="#">자세히 보기</a></div>
+                                </div>
+                            </div>
+
+                            <div class="bestsimg simg3">
+                                <div class="besttxt">
+                                    <h3>BEST SELLER</h3>
+                                    <h4 class="name">R.N.A.파워 아이크림</h4>
+                                    <h5 class="name_eng">R.N.A POWER EYE CREAM</h5>
+                                    <p class="detail">충분한 수분을 공급해지고 눈가피부에 탄력을 채우는데<br> 도움을 주는 아이크림</p>
+
+                                    <div class="more"><a href="#">자세히 보기</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                
+             
+                    <div class="bestimgwrap">
+                        <div class="bestsimg_img simg1">
+                            <div class="bestimg">
+                                <img src ="images/best1.jpg">
+                            </div>
+                        </div>
+                    
+                    <div class="bestsimg_img simg2">
+                        <div class="bestimg">
+                            <img src ="images/best2.jpg">
+                        </div>
+                        </div>
+                    <div class="bestsimg_img simg3">
+                        <div class="bestimg">
+                            <img src ="images/best3.jpg">
+                            </div>
+                        </div>
+                    </div>
+    
+                       
+                 
+                    <script>
+                             $('.best').slick({
+                                 'asNavFor' : '.bestimgwrap',
+                                 'arrows' : false,
+                                 'dots' : true,
+                                 'customPaging' : function(s, i){
+                                     return '<a href="#"></a>'
+                                 },
+                                 'fade' : true,
+                                 'autoplay' : true,
+
+                             });
+    
+                            $('.bestimgwrap').slick({
+                                'asNavFor' : '.best',
+                                'arrows' : false,
+                                'fade' : true,
+                            });
+                    </script>
+
+                        
+                  </div>
+            </div>
+
+            
+
+            <div id="featured">
+                <div class="wrap">
+                    <div class="eventpagerwrap" data-scrolly-down="blurInRight, delay:1s">
+                        <div class="eventwrap">
+                        <div class="eventsimg simg1">
+                            <div class="item event">
+                                <div class="eventtxt">
+                                    <h3>EVENT</h3>
+                                    <p class="eventname">6월 피테라에센스 리미티드에디션 체험단 이벤트</p>
+                                    <p class="date">2019.6.15~2019.7.14</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="eventsimg simg2">
+                            <div class="item event">
+                                <div class="eventtxt">
+                                    <h3>EVENT</h3>
+                                    <p class="eventname">7월 피테라에센스 리미티드에디션 체험단 이벤트</p>
+                                    <p class="date">2019.7.15~2019.8.14</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+
+                        
+                        
+
+                    </div>
+
+                    <script>
+                        $('.eventwrap').slick({
+                            'arrows' : false,
+                            'dots' : true,
+                            'customPaging' : function(s, i){
+                                return '<a href="#"></a>'
+                            },
+                            'autoplay': true,
+                        });
+                    
+                    </script>
+                    <div class="reviewwrap" data-scrolly-down="blurInLeft, delay:0.2s">
+                        <div class="reviewsimg simg1">
+                            <div class="item review">
+                                <div class="reviewtxt">
+                                    <h3>REVEIW</h3>
+                                    <p class="reviewname">페이셜 트리트먼트 에센스</p>
+                                    <p class="reviewdetail">피부가 진정되어 트러블 고민도 줄었어요.<br>
+                                            피부에 수분감이 차는 게 느껴져요!<br>
+                                            딱 쫀쫀하게 피부에 흡수되는 느낌!</p>
+                                </div>
+                                <img src="images/review1.jpg" class="reviewimg">
+                            </div>
+                        </div>
+
+                        <div class="reviewsimg simg2">
+                            <div class="item review">
+                                <div class="reviewtxt">
+                                    <h3>REVEIW</h3>
+                                    <p class="reviewname">페이셜 트리트먼트 클리어 로션</p>
+                                    <p class="reviewdetail">각질제거와 피부결 정돈에 이만한 제품이 없어요!<br>
+                                        자극이 적어 민감성 피부에도 굿!<br>
+                                        수분감이 하루종일 유지되고 화장도 잘먹네요.</p>
+                                </div>
+                                <img src="images/review2.jpg" class="reviewimg">
+                            </div>
+                        </div>
+
+                        <div class="reviewsimg simg3">
+                            <div class="item review">
+                                <div class="reviewtxt">
+                                    <h3>REVEIW</h3>
+                                    <p class="reviewname">페이셜 트리트먼트 마스크</p>
+                                    <p class="reviewdetail">피부가 맑아지고 촉촉해진게 눈에 보임!!<br>
+                                        피부결이 좋아져 고민이었던 트러블도 같이 진정되는 기분!<br>
+                                        피부가 민감의 극치를 달릴 때 쓰면 정말 좋아요.</p>
+                                </div>
+                                <img src="images/review3.jpg" class="reviewimg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                    
+                    $('.reviewwrap').slick({
+                        'arrows' : false,
+                        'dots' : true,
+                        'customPaging' : function(s, i){
+                            return '<a href="#"></a>'
+                        },
+                        'autoplay': true,
+                        'fade' : true,
+                      });
+                    
+                    </script>
+                </div>  
+            </div>
+
+            <div id="video">
+                <div class="wrap">
+                
+                    <h3>VIDEO</h3>
+                
+                    
+                    <div class="youtube">
+                            <iframe width="700" height="390" src="https://www.youtube.com/embed/jMv6ODudnsA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p>24시간이 모자란 탕웨이, 그녀의 무결점 피부 관리법은?</p>
+                    <p class="highlight">피테라에센스 | SK-II</p>
+                </div>
+            </div>
+
+            <div id="brandstory">
+                <div class="brandstoryback">
+
+                        <h3>BRAND STORY</h3>
+
+                        <div class="brandtxt" data-scrolly-down="blurInTop">
+                            <h4>피테라™의 발견</h4>
+                            <p>수년 간의 연구 끝에 사케 양조장에서 우연히 발견한 기적의 성분 피테라 TM가<br> 당신의 피부를 맑고 투명하게 가꿔줍니다.</p>
+
+                            <div class="more"><a href="#">자세히 보기</a></div>
+                        </div>
+
+                        
+
+                </div>
+                
+            
+                
+            </div>
+
+            <div id="instargram">
+                <div class="wrap">
+                <h3>INSTARGRAM</h3>
+                <ul data-scrolly-down="blurInTop"class="instar_img">
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="#"></a></li>
+                </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer_wrap">
+                <div class="wrap">
+                    <ul class="footer_link">
+                        <li><a href="#">서비스이용약관</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">영상정보처리방침</a></li>
+                        <li><a href="#">사이트맵</a></li>
+                        <li><a href="#">관련사이트</a></li>
+                        <li><a href="#">공지사항</a></li>
+                    </ul>
+                    <ul class="sns">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+
+                    <address>
+                            <p>한국피앤지판매유한회사 대표: 발라카 니야지 <br>주소:서울시 영등포구 국제금융로 10, 37층 <br>사업자 등록번호:220-86-09268 소비자 상담실:080-023-3333</p>
+                            <p class="copyright">ⓒ2019. Procter & Gamble. All Rights Reserved.</p>
+
+                    </address>
+                </div>
+            </div>
+
+        </footer>
+
+
+
+
+
+
+
+
+
+
+        
+    </div>
+
+    
+
+
+    <script>
+    
+    $('.slick-dots').find('a').click(
+        function(e){
+            e.preventDefault();         //a링크 기능 없애줌
+        }
+    );
+
+    $('.gnb>li').on('mouseover',function(){
+
+        $(this).children('.gnb2').stop().slideDown();
+        $(this).addClass('on').siblings().removeClass('on');
+    }).on('mouseout',function(){
+
+        $(this).children('.gnb2').stop().slideUp();
+
+    });
+
+    
+    </script>
+</body>
+</html>
